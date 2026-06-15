@@ -253,6 +253,21 @@ function UserView() {
               </Card>
             </div>
           </div>
+          <div className="grid gap-4 lg:grid-cols-4">
+            {readinessSignals.map((signal) => {
+              const Icon = signal.icon;
+              return (
+                <Card key={signal.label} className="animate-enter-soft">
+                  <CardHeader className="p-5">
+                    <div className="flex items-start gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-secondary"><Icon className="h-4 w-4" /></div>
+                      <div><CardTitle className="text-base">{signal.label}</CardTitle><p className="mt-1 text-sm text-muted-foreground">{signal.value}</p></div>
+                    </div>
+                  </CardHeader>
+                </Card>
+              );
+            })}
+          </div>
         </>
       ) : (
         <div className="grid gap-6 xl:grid-cols-[1fr_22rem]">
@@ -270,21 +285,6 @@ function UserView() {
           </Card>
         </div>
       )}
-      <div className="grid gap-4 lg:grid-cols-4">
-        {readinessSignals.map((signal) => {
-          const Icon = signal.icon;
-          return (
-            <Card key={signal.label} className="animate-enter-soft">
-              <CardHeader className="p-5">
-                <div className="flex items-start gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-secondary"><Icon className="h-4 w-4" /></div>
-                  <div><CardTitle className="text-base">{signal.label}</CardTitle><p className="mt-1 text-sm text-muted-foreground">{signal.value}</p></div>
-                </div>
-              </CardHeader>
-            </Card>
-          );
-        })}
-      </div>
     </div>
   );
 }
@@ -429,7 +429,7 @@ function ManagementPanel({ activeAdmin }: { activeAdmin: AdminSection }) {
   );
 }
 
-export function FlykyteApp() {
+export function AppShell() {
   const [mode, setMode] = useState<ViewMode>("user");
   const [activeAdmin, setActiveAdmin] = useState<AdminSection>("inventory");
   const pageTitle = useMemo(() => (mode === "user" ? "Loan and manage your drone" : "Management dashboard"), [mode]);

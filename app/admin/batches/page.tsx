@@ -1,5 +1,5 @@
-import { FlykyteApp } from "@/components/flykyte/flykyte-app";
+import { AppShell } from "@/components/flykyte/flykyte-app";
 
 export default function AdminBatchesPage() {
-  return <FlykyteApp />;
+  return <AppShell />;
 }

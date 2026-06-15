@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Flykyte",
+  title: "flykyte",
   description: "Drone loaning, flight readiness, and fleet management.",
 };
 
