@@ -10,7 +10,6 @@ import {
   Plane,
   Radio,
   ShieldCheck,
-  UserCheck,
   Users,
   Wrench,
 } from "lucide-react";
@@ -115,13 +114,6 @@ export const phaseChecklists = {
     "Report incidents to GSOC and ops room when required.",
   ],
 };
-
-export const managementCards = [
-  { label: "Fleet availability", value: "2 / 4", detail: "Available now", icon: Plane },
-  { label: "Personnel current", value: "2 / 3", detail: "One expiring action", icon: UserCheck },
-  { label: "Open loans", value: "2", detail: "One in execution", icon: ClipboardCheck },
-  { label: "Weather risk", value: "Medium", detail: "Showers after 1500H", icon: CloudSun },
-];
 
 export const readinessSignals = [
   { label: "Airspace", value: "205 SQN link-up pending", icon: Radio },

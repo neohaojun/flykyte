@@ -5,12 +5,10 @@ import { ProfileMenu } from "@/components/layout/profile-menu";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 
 export function TopBar({
-  role,
   userName,
   userRank,
   userEmail,
 }: {
-  role?: "user" | "admin";
   userName?: string | null;
   userRank?: string | null;
   userEmail?: string | null;
@@ -30,7 +28,6 @@ export function TopBar({
           <ProfileMenu
             profile={userName || userRank ? { full_name: userName ?? null, rank: userRank ?? null } : null}
             email={userEmail}
-            role={role}
           />
         </div>
       </div>
