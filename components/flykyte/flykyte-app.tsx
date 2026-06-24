@@ -1,14 +1,13 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { AlertTriangle, ArrowLeft, ArrowRight, BatteryCharging, Check, CheckCircle2, ChevronRight, ClipboardCheck, Clock3, FileWarning, ListChecks, LogOut, Menu, Plane, Radio, ShieldCheck, UserCircle, Wrench } from "lucide-react";
+import { AlertTriangle, ArrowLeft, ArrowRight, Check, CheckCircle2, ChevronRight, ClipboardCheck, Clock3, FileWarning, ListChecks, Menu, Plane, Radio, UserCircle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
 import { adminSections, damageReports, droneClassMeta, drones, flightLogs, forecast, loans, managementCards, personnel, phaseChecklists, profileCompetencies, readinessSignals, type AdminSection } from "@/lib/flykyte-data";
@@ -57,7 +56,6 @@ function TopBar({ mode, setMode }: { mode: ViewMode; setMode: (mode: ViewMode) =
           </div>
           <div className="min-w-0">
             <p className="truncate text-3xl font-semibold leading-none text-foreground">flykyte</p>
-            <p className="mt-1 hidden text-xs uppercase tracking-[0.2em] text-muted-foreground sm:block">UAS fleet readiness</p>
           </div>
         </div>
         <div className="ml-auto flex items-center gap-2 rounded-xl border border-border bg-card p-1">
@@ -91,10 +89,6 @@ function Sidebar({ mode, activeAdmin, setActiveAdmin }: { mode: ViewMode; active
             </div>
           </div>
         ) : null}
-      </div>
-      <div className="mt-auto rounded-xl border border-border bg-card p-4">
-        <p className="text-sm font-medium">Session</p>
-        <Button variant="outline" className="mt-3 w-full justify-start"><LogOut className="h-4 w-4" />Stand down</Button>
       </div>
     </aside>
   );
@@ -446,12 +440,6 @@ export function AppShell() {
             <div className="flex items-center gap-2 rounded-xl border border-border bg-card px-3 py-2 text-sm text-muted-foreground"><Clock3 className="h-4 w-4" />Today / 15 Jun</div>
           </div>
           {mode === "user" ? <UserView /> : <ManagementPanel activeAdmin={activeAdmin} />}
-          <Separator className="my-8" />
-          <div className="flex flex-wrap gap-2">
-            <Badge variant="outline"><ShieldCheck className="mr-1 h-3 w-3" />Safety compliance</Badge>
-            <Badge variant="outline"><BatteryCharging className="mr-1 h-3 w-3" />Flight time tracking</Badge>
-            <Badge variant="outline"><Wrench className="mr-1 h-3 w-3" />Threshold monitoring</Badge>
-          </div>
         </section>
       </div>
     </main>
